@@ -22,7 +22,7 @@ pod 'RxCommonKit'
 
 ## Author
 
-XuanCheng, jacobsontdofxro@gmail.com
+XuanCheng, DanielZSY@126.com
 
 ## License
 
