@@ -2,6 +2,10 @@
 import UIKit
 
 extension String {
+    public var locale: String {
+        let format = Bundle.main.localizedString(forKey: self, value: nil, table: "RxLocalizable")
+        return String(format: format, locale: Locale.current)
+    }
     public var color: UIColor {
         return UIColor.init(hex: self)
     }

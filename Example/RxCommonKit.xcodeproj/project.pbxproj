@@ -51,7 +51,7 @@
 			children = (
 				ACB64340FFA788F4B3DE1188 /* Frameworks */,
 				F16F38C4D246C4714CFC42F4 /* Pods */,
-				607FACF51AFB993E008FA782 /* Podspec Metadata */,
+				607FACF51AFB993E008FA782 /* Podspec */,
 				607FACD11AFB9204008FA782 /* Products */,
 				607FACD21AFB9204008FA782 /* RxCommonKit */,
 				607FACE81AFB9204008FA782 /* Tests */,
@@ -103,14 +103,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
+		607FACF51AFB993E008FA782 /* Podspec */ = {
 			isa = PBXGroup;
 			children = (
 				2A1EC28EA1F2BE0197F29370 /* RxCommonKit.podspec */,
 				7597D9B8E541435745A0C9CF /* README.md */,
 				321ABA18741FEF3E05397EE5 /* LICENSE */,
 			);
-			name = "Podspec Metadata";
+			name = Podspec;
 			sourceTree = "<group>";
 		};
 		ACB64340FFA788F4B3DE1188 /* Frameworks */ = {

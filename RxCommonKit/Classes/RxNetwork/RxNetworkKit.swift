@@ -24,7 +24,7 @@ public struct RxNetworkKit {
     }
     /// NetworkActivityPlugin插件用来监听网络请求
     private let networkPlugin = NetworkActivityPlugin.init { (changeType, targetType) in
-        switch(changeType){
+        switch (changeType) {
         case .began:
             BFLog.debug("start network: \(targetType.path)")
         case .ended:
@@ -50,25 +50,24 @@ public struct RxNetworkKit {
             switch result {
             case .success(let response):
                 do {
-                    guard let dic = try JSONSerialization.jsonObject(with: response.data, options: [.mutableContainers]) as? [String: Any] else {
-                        BFLog.debug("\n path: \(path) \n headers: \(headers) \n params: \(parameters) \n data: [not data]")
-                        completionBlock(RxNetworkResult.create(data: nil))
+                    let str = RxCryptoKit.aesDecrypt(response.data)
+                    BFLog.debug("\n path: \(path) \n headers: \(headers) \n params: \(parameters) \n data: \(str)")
+                    guard let model = RxNetworkResult.deserialize(from: str) else {
+                        completionBlock(RxNetworkResult.error(message: "errorData".locale))
                         return
                     }
-                    BFLog.debug("\n path: \(path) \n headers: \(headers) \n params: \(parameters) \n data: \(dic)")
-                    let response = RxNetworkResult.create(data: dic)
-                    switch response.code {
+                    switch model.code {
                     case RxNetworkResultCode.unAuthorized.rawValue: NotificationCenter.default.post(name: RxNotificationNameLoginExpired, object: nil)
                     default: break
                     }
-                    completionBlock(response)
+                    completionBlock(model)
                 } catch {
                     BFLog.debug("\n path: \(path) \n headers: \(headers) \n params: \(parameters) \n  error: \(error.localizedDescription)")
-                    completionBlock(RxNetworkResult.create(with: error))
+                    completionBlock(RxNetworkResult.error())
                 }
             case .failure(let error):
                 BFLog.debug("\n path: \(path) \n headers: \(headers) \n params: \(parameters) \n  error: \(error.localizedDescription)")
-                completionBlock(RxNetworkResult.create(with: error))
+                completionBlock(RxNetworkResult.error())
             }
         })
         return task

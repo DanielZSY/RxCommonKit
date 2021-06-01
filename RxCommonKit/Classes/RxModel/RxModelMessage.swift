@@ -9,7 +9,6 @@ public struct RxModelMessage: RxModelBase {
     public var id: Int64 = 0
     public var rawData: [String : Any]?
     public static let databaseTableName = "tb_rxmessage"
-    
     enum Columns: String, ColumnExpression {
         case messageUserId, messageId, messageContent, messageType, messageDirection, messageTime, messageSendState, messageUnReadCount, messageFileId, messageFileName, messageLoginUserId
     }
@@ -32,6 +31,8 @@ public struct RxModelMessage: RxModelBase {
         
     }
     public init(instance: RxModelMessage) {
+        self.id = instance.id
+        self.rawData = instance.rawData
         self.messageUserId = instance.messageUserId
         self.messageId = instance.messageId
         self.messageContent = instance.messageContent

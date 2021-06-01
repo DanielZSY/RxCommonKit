@@ -1,0 +1,6 @@
+/*
+  Localizable.strings
+*/
+
+"errorData" = "Data error";
+"errorNetwork" = "Network Error";

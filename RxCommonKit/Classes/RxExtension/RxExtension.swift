@@ -21,6 +21,9 @@ extension Int {
     public var str: String {
         return String(self)
     }
+    public var strDouble: String {
+        return String(format: "%.2f", self)
+    }
 }
 extension Double {
     public var scale: CGFloat {
@@ -37,10 +40,16 @@ extension Int32 {
     public var str: String {
         return String(self)
     }
+    public var strDouble: String {
+        return String(format: "%.2f", self)
+    }
 }
 extension Int64 {
     public var str: String {
         return String(self)
+    }
+    public var strDouble: String {
+        return String(format: "%.2f", self)
     }
 }
 extension Float {

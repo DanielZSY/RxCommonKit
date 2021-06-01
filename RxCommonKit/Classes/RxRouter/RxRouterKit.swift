@@ -5,13 +5,15 @@ import BFKit
 /// 路由导航器
 public enum RxRoutableVC: RxRoutable {
     
+    /// 创建一个VC
     case create(_ class: AnyClass, _ params: [String: Any]? = nil)
-    
+    /// VC类名
     public var any: AnyClass {
         switch self {
         case .create(let vc, _): return vc.self
         }
     }
+    /// VC参数
     public var params: [String: Any]? {
         switch self {
         case .create(_, let param): return param
@@ -20,14 +22,19 @@ public enum RxRoutableVC: RxRoutable {
 }
 /// 路由协议
 public protocol RxRoutable {
+    /// VC类名
     var any: AnyClass { get }
+    /// VC参数
     var params: [String: Any]? { get }
 }
 /// 路由方法协议
 public protocol RxRoutableBase {
+    /// VC实现参数方法
     static func initWithParams(params: [String: Any]?) -> UIViewController
 }
+/// 路由协议管理类
 public struct RxRouterKit {
+    /// 当前显示VC
     public static func getCurrentVC() -> UIViewController? {
         let rootVC = UIApplication.shared.keyWindow?.rootViewController
         let currentVC = RxRouterKit.getCurrentVC(vc: rootVC)
@@ -46,6 +53,7 @@ public struct RxRouterKit {
         }
         return currentVC
     }
+    /// 当前PushVC
     public static func getCurrentPushVC() -> UIViewController? {
         let rootVC = UIApplication.shared.keyWindow?.rootViewController
         let currentVC = RxRouterKit.getCurrentPushVC(vc: rootVC)
@@ -61,6 +69,7 @@ public struct RxRouterKit {
         }
         return currentVC
     }
+    /// 路由协议push VC
     public static func push(path: RxRoutable, fromVC: UIViewController? = nil, animated: Bool = true) {
         if let cls = path.any as? RxRoutableBase.Type {
             let toVC = cls.initWithParams(params: path.params)
@@ -74,6 +83,7 @@ public struct RxRouterKit {
             })
         }
     }
+    /// 自定义push VC
     public static func push(toVC: UIViewController, fromVC: UIViewController? = nil, animated: Bool = true) {
         toVC.hidesBottomBarWhenPushed = true
         DispatchQueue.DispatchaSync(mainHandler: {
@@ -100,6 +110,7 @@ public struct RxRouterKit {
         fromVC?.navigationController?.popToRootViewController(animated: animated)
         CATransaction.commit()
     }
+    /// 路由协议present VC
     public static func present(path: RxRoutable, fromVC: UIViewController? = nil, animated: Bool = true, completion: (()->Void)? = nil) {
         if let cls = path.any as? RxRoutableBase.Type {
             let toVC = cls.initWithParams(params: path.params)
@@ -116,6 +127,7 @@ public struct RxRouterKit {
             })
         }
     }
+    /// 自定义present VC
     public static func present(toVC: UIViewController, fromVC: UIViewController? = nil, animated: Bool = true, completion: (()->Void)? = nil) {
         DispatchQueue.DispatchaSync(mainHandler: {
             if fromVC != nil {

@@ -31,3 +31,10 @@ public enum RxEnumImage: String {
     /// 视频
     case wav = "wav"
 }
+/// bool类型
+public enum RxEnumBool: String {
+    /// 真
+    case yes = "y"
+    /// 假
+    case no = "n"
+}

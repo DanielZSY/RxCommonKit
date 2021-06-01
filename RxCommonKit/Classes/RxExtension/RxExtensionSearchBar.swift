@@ -10,8 +10,20 @@ extension UISearchBar {
         for item in self.subviews {
             if item.subviews.count > 0 {
                 for view in item.subviews {
-                    if let vc = NSClassFromString("UISearchBarTextField"), view.isMember(of: vc) {
-                        return vc as? UITextField
+                    if let ui = NSClassFromString("UISearchBarTextField"), view.isMember(of: ui) {
+                        return ui as? UITextField
+                    }
+                }
+            }
+        }
+        return nil
+    }
+    public var cancelButton: UIButton? {
+        for item in self.subviews {
+            if item.subviews.count > 0 {
+                for view in item.subviews {
+                    if let ui = NSClassFromString("UINavigationButton"), view.isKind(of: ui) {
+                        return ui as? UIButton
                     }
                 }
             }

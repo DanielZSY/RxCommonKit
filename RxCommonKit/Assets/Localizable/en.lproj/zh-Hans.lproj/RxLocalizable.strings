@@ -1,0 +1,6 @@
+/*
+  Localizable.strings
+*/
+
+"errorData" = "数据错误";
+"errorNetwork" = "网络错误";
