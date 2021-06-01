@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        BFLog.debug("date: \(Date()) GMT8: \(Date.GMT8())  time: \(Date.time())")
+        BFLog.debug("date: \(Date()) GMT8: \(Date.time())  time: \(Date.date())")
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
