@@ -1,0 +1,81 @@
+PODS:
+  - Alamofire (5.4.3)
+  - AlamofireImage (4.2.0):
+    - Alamofire (~> 5.4)
+  - AlamofireNetworkActivityIndicator (3.1.0):
+    - Alamofire (~> 5.1)
+  - BFKit-Swift (6.0.1)
+  - CryptoSwift (1.4.0)
+  - GRDB.swift (5.8.0):
+    - GRDB.swift/standard (= 5.8.0)
+  - GRDB.swift/standard (5.8.0)
+  - HandyJSON (5.0.2)
+  - Moya (14.0.0):
+    - Moya/Core (= 14.0.0)
+  - Moya/Core (14.0.0):
+    - Alamofire (~> 5.0)
+  - Result (5.0.0)
+  - RxCocoa (6.2.0):
+    - RxRelay (= 6.2.0)
+    - RxSwift (= 6.2.0)
+  - RxCommonKit (0.0.1):
+    - Alamofire
+    - AlamofireImage
+    - AlamofireNetworkActivityIndicator
+    - BFKit-Swift
+    - CryptoSwift
+    - GRDB.swift
+    - HandyJSON
+    - Moya
+    - Result
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+    - SwiftDate
+  - RxRelay (6.2.0):
+    - RxSwift (= 6.2.0)
+  - RxSwift (6.2.0)
+  - SwiftDate (6.3.1)
+
+DEPENDENCIES:
+  - RxCommonKit (from `../RxCommonKit.podspec`)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - AlamofireImage
+    - AlamofireNetworkActivityIndicator
+    - BFKit-Swift
+    - CryptoSwift
+    - GRDB.swift
+    - HandyJSON
+    - Moya
+    - Result
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+    - SwiftDate
+
+EXTERNAL SOURCES:
+  RxCommonKit:
+    :path: "../RxCommonKit.podspec"
+
+SPEC CHECKSUMS:
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  AlamofireImage: 34a2d90b0e5fe6a5605f85ae4b7b01e784c60192
+  AlamofireNetworkActivityIndicator: 6564782bd7b9e6c430ae67d9277af01907b01ca4
+  BFKit-Swift: a91367e548f995ef9804956e255912fdbf0d91a2
+  CryptoSwift: 7cc902df1784de3b389a387756c7d710f197730c
+  GRDB.swift: 9b9beec114435e1d852ad68c136cff4c71134627
+  HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
+  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
+  Result: ed341d2f236af425b803e690e9bd8fd0a0cb7c5a
+  RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
+  RxCommonKit: 62b1f35a637c776f85382508b1213f223ebfcfb3
+  RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
+  RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
+  SwiftDate: 72d28954e8e1c6c1c0f917ccc8005e4f83c7d4b2
+
+PODFILE CHECKSUM: 30ef11d52f6b9e8e6b07534c419ac2234e257581
+
+COCOAPODS: 1.10.1

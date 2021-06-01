@@ -1,0 +1,6 @@
+framework module RxCommonKit {
+  umbrella header "RxCommonKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
