@@ -16,7 +16,7 @@ public struct RxNetworkKit {
     /// 网络请求对象
     private func defaultAlamofire() -> Alamofire.Session {
         let configuration = URLSessionConfiguration.default
-        configuration.timeoutIntervalForRequest = 15
+        configuration.timeoutIntervalForRequest = 10
         configuration.httpAdditionalHeaders = RxRequestHeaders()
         
         let session = Alamofire.Session.init(configuration: configuration)
@@ -50,7 +50,7 @@ public struct RxNetworkKit {
             switch result {
             case .success(let response):
                 do {
-                    let str = RxCryptoKit.aesDecrypt(response.data)
+                    let str = RxCryptoKit.aesDecrypt(data: response.data)
                     BFLog.debug("\n path: \(path) \n headers: \(headers) \n params: \(parameters) \n data: \(str)")
                     guard let model = RxNetworkResult.deserialize(from: str) else {
                         completionBlock(RxNetworkResult.error(message: "errorData".locale))

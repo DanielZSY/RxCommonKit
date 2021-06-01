@@ -310,6 +310,7 @@
 		656FF46626662C8400E783AC /* RxLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 656FF46826662C8400E783AC /* RxLocalizable.strings */; };
 		656FF46B266632C000E783AC /* RxSQLiteVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656FF46A266632C000E783AC /* RxSQLiteVersion.swift */; };
 		656FF46D266632FB00E783AC /* RxModelVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656FF46C266632FB00E783AC /* RxModelVersion.swift */; };
+		656FF46F26663EF100E783AC /* RxLocalCacheKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656FF46E26663EF100E783AC /* RxLocalCacheKit.swift */; };
 		65A161117DC1C41192916756704D99F8 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5E9AAADDDE7A80A95472DFAF206C97B /* Alamofire.framework */; };
 		6651DE8BD5F1653C466C9CE4ED57568B /* ValidationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E3B2377A185079544A761C55380416 /* ValidationType.swift */; };
 		666EC5C8356E6D4448A2FE7BEE77AD88 /* RedirectHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C982738EF7587FFE1DF0CA693F16770 /* RedirectHandler.swift */; };
@@ -1339,6 +1340,7 @@
 		656FF46926662CB400E783AC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/RxLocalizable.strings"; sourceTree = "<group>"; };
 		656FF46A266632C000E783AC /* RxSQLiteVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxSQLiteVersion.swift; sourceTree = "<group>"; };
 		656FF46C266632FB00E783AC /* RxModelVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxModelVersion.swift; sourceTree = "<group>"; };
+		656FF46E26663EF100E783AC /* RxLocalCacheKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxLocalCacheKit.swift; sourceTree = "<group>"; };
 		65E11BE8365B1072FF56D0A301634864 /* NSObject+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSObject+Rx.swift"; path = "RxCocoa/Foundation/NSObject+Rx.swift"; sourceTree = "<group>"; };
 		6694166C261C4866604F20323D9F9224 /* Driver+Subscription.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Driver+Subscription.swift"; path = "RxCocoa/Traits/Driver/Driver+Subscription.swift"; sourceTree = "<group>"; };
 		66A042938A6419C82B424304D5F3D755 /* NSAttributedString+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSAttributedString+Extensions.swift"; path = "Sources/BFKit/Apple/Foundation/NSAttributedString+Extensions.swift"; sourceTree = "<group>"; };
@@ -2264,6 +2266,7 @@
 			isa = PBXGroup;
 			children = (
 				656FF464266621B500E783AC /* RxCryptoKit.swift */,
+				656FF46E26663EF100E783AC /* RxLocalCacheKit.swift */,
 			);
 			name = RxTools;
 			path = RxCommonKit/Classes/RxTools;
@@ -4028,6 +4031,7 @@
 				71DE4473A12AD11F6A09EAFF28CD7E9C /* RxExtensionDate.swift in Sources */,
 				AB40EE0E6C9E3CEC2D33579CC314C416 /* RxExtensionDevice.swift in Sources */,
 				0011489DAA9453C9B1205CEBC816EC7F /* RxExtensionDispatchQueue.swift in Sources */,
+				656FF46F26663EF100E783AC /* RxLocalCacheKit.swift in Sources */,
 				1722C17FA4694136278E36CDCFA1BDC7 /* RxExtensionImage.swift in Sources */,
 				0B397F0CF2A0FD0F7A505BA42E359A8D /* RxExtensionImageView.swift in Sources */,
 				372122BF11268E85564427224512AB64 /* RxExtensionLabel.swift in Sources */,
