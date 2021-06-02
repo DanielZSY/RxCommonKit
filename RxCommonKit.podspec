@@ -40,6 +40,7 @@ Pod::Spec.new do |s|
   s.dependency 'HandyJSON'
   s.dependency 'Alamofire'
   s.dependency 'SwiftDate'
+  s.dependency 'Starscream'
   s.dependency 'GRDB.swift'
   s.dependency 'BFKit-Swift'
   s.dependency 'CryptoSwift'

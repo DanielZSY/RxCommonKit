@@ -1,3 +1,4 @@
+
 import UIKit
 import BFKit
 import GRDB.Swift
@@ -13,9 +14,7 @@ public struct RxSQLiteKit {
     /// 单例模式
     public static var shared = RxSQLiteKit()
     /// 连接池
-    public var connection: DatabaseQueue? {
-        return self.dbQueue
-    }
+    public var connection: DatabaseQueue? { return self.dbQueue }
     /// 打开数据库
     public mutating func open() {
         BFLog.error("dbpath: \(RxDBPath)")

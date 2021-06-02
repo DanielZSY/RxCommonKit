@@ -31,10 +31,12 @@ PODS:
     - RxCocoa
     - RxRelay
     - RxSwift
+    - Starscream
     - SwiftDate
   - RxRelay (6.2.0):
     - RxSwift (= 6.2.0)
   - RxSwift (6.2.0)
+  - Starscream (4.0.4)
   - SwiftDate (6.3.1)
 
 DEPENDENCIES:
@@ -54,6 +56,7 @@ SPEC REPOS:
     - RxCocoa
     - RxRelay
     - RxSwift
+    - Starscream
     - SwiftDate
 
 EXTERNAL SOURCES:
@@ -71,9 +74,10 @@ SPEC CHECKSUMS:
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   Result: ed341d2f236af425b803e690e9bd8fd0a0cb7c5a
   RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
-  RxCommonKit: 62b1f35a637c776f85382508b1213f223ebfcfb3
+  RxCommonKit: 4ff733efb517cfc91814757e92615217a623de28
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
+  Starscream: 5178aed56b316f13fa3bc55694e583d35dd414d9
   SwiftDate: 72d28954e8e1c6c1c0f917ccc8005e4f83c7d4b2
 
 PODFILE CHECKSUM: 30ef11d52f6b9e8e6b07534c419ac2234e257581
