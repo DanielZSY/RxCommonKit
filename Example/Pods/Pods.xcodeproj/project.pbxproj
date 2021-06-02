@@ -316,6 +316,10 @@
 		65DFDBDF26671CE400AB4BA8 /* RxAuduiRecordKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DFDBDE26671CE400AB4BA8 /* RxAuduiRecordKit.swift */; };
 		65DFDBE12667380700AB4BA8 /* RxMusicPlayerKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DFDBE02667380700AB4BA8 /* RxMusicPlayerKit.swift */; };
 		65DFDBE3266739E200AB4BA8 /* RxAudioPlayerKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DFDBE2266739E200AB4BA8 /* RxAudioPlayerKit.swift */; };
+		65DFDBE5266743B400AB4BA8 /* RxModelMessageRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DFDBE4266743B400AB4BA8 /* RxModelMessageRecord.swift */; };
+		65DFDBE726675FCC00AB4BA8 /* RxModelArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DFDBE626675FCC00AB4BA8 /* RxModelArea.swift */; };
+		65DFDBE9266762CA00AB4BA8 /* RxModelLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DFDBE8266762CA00AB4BA8 /* RxModelLocation.swift */; };
+		65DFDBEB2667699200AB4BA8 /* RxLocateKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DFDBEA2667699200AB4BA8 /* RxLocateKit.swift */; };
 		6651DE8BD5F1653C466C9CE4ED57568B /* ValidationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E3B2377A185079544A761C55380416 /* ValidationType.swift */; };
 		666EC5C8356E6D4448A2FE7BEE77AD88 /* RedirectHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C982738EF7587FFE1DF0CA693F16770 /* RedirectHandler.swift */; };
 		66B26C6CAE737EC21F4BA1F1851B69C5 /* Result+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AF8AE0F43E848F2138EBBE648BDB12 /* Result+Alamofire.swift */; };
@@ -1349,6 +1353,10 @@
 		65DFDBDE26671CE400AB4BA8 /* RxAuduiRecordKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxAuduiRecordKit.swift; sourceTree = "<group>"; };
 		65DFDBE02667380700AB4BA8 /* RxMusicPlayerKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxMusicPlayerKit.swift; sourceTree = "<group>"; };
 		65DFDBE2266739E200AB4BA8 /* RxAudioPlayerKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxAudioPlayerKit.swift; sourceTree = "<group>"; };
+		65DFDBE4266743B400AB4BA8 /* RxModelMessageRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxModelMessageRecord.swift; sourceTree = "<group>"; };
+		65DFDBE626675FCC00AB4BA8 /* RxModelArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxModelArea.swift; sourceTree = "<group>"; };
+		65DFDBE8266762CA00AB4BA8 /* RxModelLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxModelLocation.swift; sourceTree = "<group>"; };
+		65DFDBEA2667699200AB4BA8 /* RxLocateKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxLocateKit.swift; sourceTree = "<group>"; };
 		65E11BE8365B1072FF56D0A301634864 /* NSObject+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSObject+Rx.swift"; path = "RxCocoa/Foundation/NSObject+Rx.swift"; sourceTree = "<group>"; };
 		6694166C261C4866604F20323D9F9224 /* Driver+Subscription.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Driver+Subscription.swift"; path = "RxCocoa/Traits/Driver/Driver+Subscription.swift"; sourceTree = "<group>"; };
 		66A042938A6419C82B424304D5F3D755 /* NSAttributedString+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSAttributedString+Extensions.swift"; path = "Sources/BFKit/Apple/Foundation/NSAttributedString+Extensions.swift"; sourceTree = "<group>"; };
@@ -2211,8 +2219,11 @@
 		4833C4136DF9C7D217B4DC2CAAE4AC76 /* RxModel */ = {
 			isa = PBXGroup;
 			children = (
+				65DFDBE626675FCC00AB4BA8 /* RxModelArea.swift */,
 				E0D6232F518CE815E3C8C8CF85696B7A /* RxModelBase.swift */,
+				65DFDBE8266762CA00AB4BA8 /* RxModelLocation.swift */,
 				A16C7DBBDB71B086243FB4AE7DDDA453 /* RxModelMessage.swift */,
+				65DFDBE4266743B400AB4BA8 /* RxModelMessageRecord.swift */,
 				656FF46C266632FB00E783AC /* RxModelVersion.swift */,
 			);
 			name = RxModel;
@@ -2278,6 +2289,7 @@
 				656FF464266621B500E783AC /* RxCryptoKit.swift */,
 				656FF46E26663EF100E783AC /* RxLocalCacheKit.swift */,
 				656FF47026664A7200E783AC /* RxLocalFileKit.swift */,
+				65DFDBEA2667699200AB4BA8 /* RxLocateKit.swift */,
 				65DFDBE02667380700AB4BA8 /* RxMusicPlayerKit.swift */,
 			);
 			name = RxTools;
@@ -4033,6 +4045,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				656FF47126664A7200E783AC /* RxLocalFileKit.swift in Sources */,
+				65DFDBE726675FCC00AB4BA8 /* RxModelArea.swift in Sources */,
 				842653387AE78CEC4A092872F3A03B67 /* RxCommon.swift in Sources */,
 				7CC20A1A3FED483CFFF3D4320662C948 /* RxCommonKit-dummy.m in Sources */,
 				3896FC7787A5DC0EDDEF90330A20FD91 /* RxCommonKit.swift in Sources */,
@@ -4047,11 +4060,13 @@
 				656FF46F26663EF100E783AC /* RxLocalCacheKit.swift in Sources */,
 				1722C17FA4694136278E36CDCFA1BDC7 /* RxExtensionImage.swift in Sources */,
 				0B397F0CF2A0FD0F7A505BA42E359A8D /* RxExtensionImageView.swift in Sources */,
+				65DFDBE9266762CA00AB4BA8 /* RxModelLocation.swift in Sources */,
 				372122BF11268E85564427224512AB64 /* RxExtensionLabel.swift in Sources */,
 				060AC1CB62E9F5DBFE810A8C795467A3 /* RxExtensionSearchBar.swift in Sources */,
 				081DF234287AC75B6CFC53FD746E0D57 /* RxExtensionString.swift in Sources */,
 				E51EABABD5350B14DB67CAA72C14CE30 /* RxExtensionTableView.swift in Sources */,
 				A5FE9A27E43C351AB6A2DDCCEA33A4D1 /* RxExtensionUrl.swift in Sources */,
+				65DFDBE5266743B400AB4BA8 /* RxModelMessageRecord.swift in Sources */,
 				E9977E8F64B89BB64887889014A0D7E4 /* RxExtensionView.swift in Sources */,
 				153DDF2ED8C64C9AAD6F30426EC1D7F4 /* RxFormat.swift in Sources */,
 				C5C77523006610C742169E2F89AADC65 /* RxKey.swift in Sources */,
@@ -4067,6 +4082,7 @@
 				B63EA4CC1085FDA7F0FA597EA43B9532 /* RxRouterKit.swift in Sources */,
 				7292CE7A6B96A23B7F87C046F77C72F8 /* RxSQLiteKit.swift in Sources */,
 				65DFDBE3266739E200AB4BA8 /* RxAudioPlayerKit.swift in Sources */,
+				65DFDBEB2667699200AB4BA8 /* RxLocateKit.swift in Sources */,
 				CBA1A7F1281ABC706AA887D9CBEF330C /* RxUserSetting.swift in Sources */,
 				65DFDBE12667380700AB4BA8 /* RxMusicPlayerKit.swift in Sources */,
 				A17DEB5F7B11FF0AA25BF9DABCD3306A /* SSKeychain.m in Sources */,

@@ -19,16 +19,6 @@ class ViewController: UIViewController {
         
         self.view.backgroundColor = UIColor.white
         BFLog.debug("date: \(Date()) GMT8: \(Date.time())  time: \(Date.date())")
-        
-        
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
     }
 }
 
