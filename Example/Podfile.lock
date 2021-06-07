@@ -6,10 +6,19 @@ PODS:
     - Alamofire (~> 5.1)
   - BFKit-Swift (6.0.1)
   - CryptoSwift (1.4.0)
+  - Differentiator (5.0.0)
   - GRDB.swift (5.8.0):
     - GRDB.swift/standard (= 5.8.0)
   - GRDB.swift/standard (5.8.0)
   - HandyJSON (5.0.2)
+  - IGListDiffKit (4.0.0)
+  - IGListKit (4.0.0):
+    - IGListDiffKit (= 4.0.0)
+  - InputBarAccessoryView (4.3.3):
+    - InputBarAccessoryView/Core (= 4.3.3)
+  - InputBarAccessoryView/Core (4.3.3)
+  - MessageKit (3.1.1):
+    - InputBarAccessoryView (~> 4.3.0)
   - Moya (14.0.0):
     - Moya/Core (= 14.0.0)
   - Moya/Core (14.0.0):
@@ -29,18 +38,44 @@ PODS:
     - Moya
     - Result
     - RxCocoa
-    - RxRelay
     - RxSwift
     - Starscream
     - SwiftDate
+  - RxDataSources (5.0.0):
+    - Differentiator (~> 5.0)
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
+  - RxGesture (4.0.2):
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
+  - RxIGListKit (2.0.2):
+    - IGListKit (~> 4.0.0)
+    - RxCocoa (~> 6.0)
+  - RxKeyboard (2.0.0):
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
   - RxRelay (6.2.0):
     - RxSwift (= 6.2.0)
   - RxSwift (6.2.0)
+  - RxSwiftExt (6.0.1):
+    - RxSwiftExt/Core (= 6.0.1)
+    - RxSwiftExt/RxCocoa (= 6.0.1)
+  - RxSwiftExt/Core (6.0.1):
+    - RxSwift (~> 6.0)
+  - RxSwiftExt/RxCocoa (6.0.1):
+    - RxCocoa (~> 6.0)
+    - RxSwiftExt/Core
   - Starscream (4.0.4)
   - SwiftDate (6.3.1)
 
 DEPENDENCIES:
+  - MessageKit
   - RxCommonKit (from `../RxCommonKit.podspec`)
+  - RxDataSources
+  - RxGesture
+  - RxIGListKit
+  - RxKeyboard
+  - RxSwiftExt
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -49,13 +84,23 @@ SPEC REPOS:
     - AlamofireNetworkActivityIndicator
     - BFKit-Swift
     - CryptoSwift
+    - Differentiator
     - GRDB.swift
     - HandyJSON
+    - IGListDiffKit
+    - IGListKit
+    - InputBarAccessoryView
+    - MessageKit
     - Moya
     - Result
     - RxCocoa
+    - RxDataSources
+    - RxGesture
+    - RxIGListKit
+    - RxKeyboard
     - RxRelay
     - RxSwift
+    - RxSwiftExt
     - Starscream
     - SwiftDate
 
@@ -69,17 +114,27 @@ SPEC CHECKSUMS:
   AlamofireNetworkActivityIndicator: 6564782bd7b9e6c430ae67d9277af01907b01ca4
   BFKit-Swift: a91367e548f995ef9804956e255912fdbf0d91a2
   CryptoSwift: 7cc902df1784de3b389a387756c7d710f197730c
+  Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
   GRDB.swift: 9b9beec114435e1d852ad68c136cff4c71134627
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
+  IGListDiffKit: 665d6cf43ce726e676013db9c7d6c4294259b6b2
+  IGListKit: fd5a5d21935298f5849fa49d426843cff97b77c7
+  InputBarAccessoryView: 8e7fc09e9cba75e0fee5da13450e15c194806f69
+  MessageKit: a3e612a54a24f5d9ca0295760749b481afd3f2da
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   Result: ed341d2f236af425b803e690e9bd8fd0a0cb7c5a
   RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
-  RxCommonKit: 4ff733efb517cfc91814757e92615217a623de28
+  RxCommonKit: 0baa3b9d9217223fcef6674a5e78e3da66480da4
+  RxDataSources: aa47cc1ed6c500fa0dfecac5c979b723542d79cf
+  RxGesture: f059f2aeef966fb17dad56ee440e76410f10e55f
+  RxIGListKit: 15a701dfdec1d625ce3c0bb412d5d1dcdb528b18
+  RxKeyboard: 4f5863f43b4ff0cbb2a20b94688d6b80c8a43c14
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
+  RxSwiftExt: d61c4b9b06e0a448041b1c659e0f1b5c5a035afc
   Starscream: 5178aed56b316f13fa3bc55694e583d35dd414d9
   SwiftDate: 72d28954e8e1c6c1c0f917ccc8005e4f83c7d4b2
 
-PODFILE CHECKSUM: 30ef11d52f6b9e8e6b07534c419ac2234e257581
+PODFILE CHECKSUM: dad6a0873ca461b804f37c425087486c1f706f44
 
 COCOAPODS: 1.10.1

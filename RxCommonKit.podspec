@@ -36,7 +36,6 @@ Pod::Spec.new do |s|
   s.dependency 'Result'
   s.dependency 'RxSwift'
   s.dependency 'RxCocoa'
-  s.dependency 'RxRelay'
   s.dependency 'HandyJSON'
   s.dependency 'Alamofire'
   s.dependency 'SwiftDate'

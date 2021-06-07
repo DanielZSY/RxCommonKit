@@ -4,11 +4,9 @@ import BFKit
 import GRDB.Swift
 import HandyJSON.Swift
 
-public struct RxModelLocation: RxModelBase {
+public class RxModelLocation: RxModelBase {
     
-    public var id: Int64 = 0
-    public var rawData: [String : Any]?
-    public static let databaseTableName = "tb_rxlocation"
+    public class override var databaseTableName: String { "tb_location" }
     enum Columns: String, ColumnExpression {
         case id, latitude, longitude, country, province, city, state, area, street, thoroughfare, countryCode, countryNunber, postalCode, address, addressLines
     }
@@ -43,30 +41,32 @@ public struct RxModelLocation: RxModelBase {
     /// 字典数据
     public var addressDictionary: [AnyHashable: Any]?
     
-    public init() {
+    public required override init() {
+        super.init()
+    }
+    public required init<T: RxModelBase>(instance: T) {
+        super.init(instance: instance)
+        guard let model = instance as? Self else { return }
         
+        self.latitude = model.latitude
+        self.longitude = model.longitude
+        self.country = model.country
+        self.province = model.province
+        self.city = model.city
+        self.state = model.state
+        self.area = model.area
+        self.street = model.street
+        self.thoroughfare = model.thoroughfare
+        self.countryCode = model.countryCode
+        self.countryNunber = model.countryNunber
+        self.postalCode = model.postalCode
+        self.address = model.address
+        self.addressLines = model.addressLines
+        self.addressDictionary = model.addressDictionary
     }
-    public init(instance: RxModelLocation) {
-        self.id = instance.id
-        self.rawData = instance.rawData
-        self.latitude = instance.latitude
-        self.longitude = instance.longitude
-        self.country = instance.country
-        self.province = instance.province
-        self.city = instance.city
-        self.state = instance.state
-        self.area = instance.area
-        self.street = instance.street
-        self.thoroughfare = instance.thoroughfare
-        self.countryCode = instance.countryCode
-        self.countryNunber = instance.countryNunber
-        self.postalCode = instance.postalCode
-        self.address = instance.address
-        self.addressLines = instance.addressLines
-        self.addressDictionary = instance.addressDictionary
-    }
-    public init(row: Row) {
-        self.id = row[Columns.id] ?? 0
+    public required init(row: Row) {
+        super.init(row: row)
+        
         self.latitude = row[Columns.latitude] ?? 0
         self.longitude = row[Columns.longitude] ?? 0
         self.country = row[Columns.country] ?? ""
@@ -83,7 +83,9 @@ public struct RxModelLocation: RxModelBase {
         let lines = row[Columns.countryNunber] ?? ""
         self.addressLines = lines.components(separatedBy: "@")
     }
-    public func encode(to container: inout PersistenceContainer) {
+    public override func encode(to container: inout PersistenceContainer) {
+        super.encode(to: &container)
+        
         container[Columns.id] = self.id
         container[Columns.latitude] = self.latitude
         container[Columns.longitude] = self.longitude
@@ -99,5 +101,8 @@ public struct RxModelLocation: RxModelBase {
         container[Columns.postalCode] = self.postalCode
         container[Columns.address] = self.address
         container[Columns.addressLines] = self.addressLines?.joined(separator: "@") ?? ""
+    }
+    public override func mapping(mapper: HelpingMapper) {
+        super.mapping(mapper: mapper)
     }
 }

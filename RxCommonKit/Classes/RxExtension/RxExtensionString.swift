@@ -63,9 +63,7 @@ extension String {
         return ceil(rect.height)
     }
     public var base64encoded: String {
-        guard let data: Data = data(using: .utf8) else {
-            return ""
-        }
+        guard let data: Data = data(using: .utf8) else { return "" }
         return data.base64EncodedString()
     }
     public var base64decoded: String {
@@ -88,22 +86,16 @@ extension String {
     }
     public func substring(from character: Character) -> String {
         let index = self.index(of: character)
-        guard index > -1 else {
-            return ""
-        }
+        guard index > -1 else { return "" }
         return substring(from: index + 1)
     }
     public func substring(to index: Int) -> String {
-        guard index <= count else {
-            return ""
-        }
+        guard index <= count else { return "" }
         return String(self[..<self.index(startIndex, offsetBy: index)])
     }
     public func substring(to character: Character) -> String {
         let index: Int = self.index(of: character)
-        guard index > -1 else {
-            return ""
-        }
+        guard index > -1 else { return "" }
         return substring(to: index)
     }
     public func substring(with range: Range<Int>) -> String {
@@ -116,9 +108,7 @@ extension String {
         substring(with: Range(uncheckedBounds: (lower: range.lowerBound, upper: range.upperBound + 1)))
     }
     public func index(of character: Character) -> Int {
-        guard let index: Index = firstIndex(of: character) else {
-            return -1
-        }
+        guard let index: Index = firstIndex(of: character) else { return -1 }
         return distance(from: startIndex, to: index)
     }
     public func range(of string: String, caseSensitive: Bool = true) -> Bool {
@@ -129,16 +119,11 @@ extension String {
     }
     public func occurrences(of string: String, caseSensitive: Bool = true) -> Int {
         var string = string
-        if !caseSensitive {
-            string = string.lowercased()
-        }
+        if !caseSensitive { string = string.lowercased() }
         return lowercased().components(separatedBy: string).count - 1
     }
     public func queryStringParameter(parameter: String) -> String? {
-        guard let url = URLComponents(string: self) else {
-            return nil
-        }
-        
+        guard let url = URLComponents(string: self) else { return nil }
         return url.queryItems?.first { $0.name == parameter }?.value
     }
     public func queryDictionary() -> [String: String] {
@@ -160,9 +145,7 @@ extension String {
     }
     /// 验证邮箱
     public func isEmail() -> Bool {
-        if self.length == 0 {
-            return false
-        }
+        if self.length == 0 { return false }
         let emailRegex = "^([A-Za-z0-9_\\.-]+)@([\\dA-Za-z\\.-]+)\\.([A-Za-z\\.]{2,6})$"
         let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegex)
         

@@ -4,11 +4,9 @@ import GRDB.Swift
 import HandyJSON.Swift
 
 /// 自定义消息对象
-public struct RxModelMessage: RxModelBase {
+public class RxModelMessage: RxModelBase {
     
-    public var id: Int64 = 0
-    public var rawData: [String : Any]?
-    public static let databaseTableName = "tb_rxmessage"
+    public class override var databaseTableName: String { "tb_message" }
     enum Columns: String, ColumnExpression {
         case messageUserId, messageId, messageContent, messageType, messageDirection, messageTime, messageSendState, messageUnReadCount, messageFileId, messageFileName, messageLoginUserId
     }
@@ -27,25 +25,28 @@ public struct RxModelMessage: RxModelBase {
     public var messageFileName: String = ""
     public var messageLoginUserId: Int64 = RxUserSetting.shared.userId
     
-    public init() {
+    public required init() {
+        super.init()
+    }
+    public required init<T: RxModelBase>(instance: T) {
+        super.init(instance: instance)
+        guard let model = instance as? Self else { return }
         
+        self.messageUserId = model.messageUserId
+        self.messageId = model.messageId
+        self.messageContent = model.messageContent
+        self.messageType = model.messageType
+        self.messageDirection = model.messageDirection
+        self.messageTime = model.messageTime
+        self.messageSendState = model.messageSendState
+        self.messageUnReadCount = model.messageUnReadCount
+        self.messageFileId = model.messageFileId
+        self.messageFileName = model.messageFileName
+        self.messageLoginUserId = model.messageLoginUserId
     }
-    public init(instance: RxModelMessage) {
-        self.id = instance.id
-        self.rawData = instance.rawData
-        self.messageUserId = instance.messageUserId
-        self.messageId = instance.messageId
-        self.messageContent = instance.messageContent
-        self.messageType = instance.messageType
-        self.messageDirection = instance.messageDirection
-        self.messageTime = instance.messageTime
-        self.messageSendState = instance.messageSendState
-        self.messageUnReadCount = instance.messageUnReadCount
-        self.messageFileId = instance.messageFileId
-        self.messageFileName = instance.messageFileName
-        self.messageLoginUserId = instance.messageLoginUserId
-    }
-    public init(row: Row) {
+    public required init(row: Row) {
+        super.init(row: row)
+        
         self.messageUserId = row[Columns.messageUserId] ?? 0
         self.messageId = row[Columns.messageId] ?? ""
         self.messageContent = row[Columns.messageContent] ?? ""
@@ -58,10 +59,9 @@ public struct RxModelMessage: RxModelBase {
         self.messageFileName = row[Columns.messageFileName] ?? ""
         self.messageLoginUserId = row[Columns.messageLoginUserId] ?? 0
     }
-    public mutating func didInsert(with rowID: Int64, for column: String?) {
-        self.id = rowID
-    }
-    public func encode(to container: inout PersistenceContainer) {
+    public override func encode(to container: inout PersistenceContainer) {
+        super.encode(to: &container)
+        
         container[Columns.messageUserId] = self.messageUserId
         container[Columns.messageId] = self.messageId
         container[Columns.messageContent] = self.messageContent
@@ -74,7 +74,7 @@ public struct RxModelMessage: RxModelBase {
         container[Columns.messageFileName] = self.messageFileName
         container[Columns.messageLoginUserId] = self.messageLoginUserId
     }
-    public func mapping(mapper: HelpingMapper) {
-        
+    public override func mapping(mapper: HelpingMapper) {
+        super.mapping(mapper: mapper)
     }
 }

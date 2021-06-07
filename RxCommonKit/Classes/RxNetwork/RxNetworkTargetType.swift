@@ -73,16 +73,10 @@ extension RxNetworkTargetType: TargetType {
         default:
             switch self {
             case .get(_, _):
-                guard let parameter = self.parameters else {
-                    return .requestParameters(parameters: [:], encoding: URLEncoding.queryString)
-                }
-                return .requestParameters(parameters: parameter, encoding: URLEncoding.queryString)
+                return .requestParameters(parameters: self.parameters ?? [:], encoding: URLEncoding.queryString)
             default: break
             }
-            guard let parameter = self.parameters else {
-                return .requestParameters(parameters: [:], encoding: JSONEncoding.prettyPrinted)
-            }
-            return .requestParameters(parameters: parameter, encoding: JSONEncoding.prettyPrinted)
+            return .requestParameters(parameters: self.parameters ?? [:], encoding: JSONEncoding.prettyPrinted)
         }
     }
     public var headers: [String: String]? {

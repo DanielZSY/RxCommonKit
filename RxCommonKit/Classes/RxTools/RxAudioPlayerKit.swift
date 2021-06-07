@@ -44,7 +44,7 @@ public class RxAudioPlayerKit: NSObject {
         self.stopSound()
         self.playerPath = path
         BFLog.debug("start player path: \(self.playerPath)")
-        let url = URL.init(fileURLWithPath: path, isDirectory: true)
+        let url = URL.init(fileURLWithPath: path, isDirectory: false)
         BFLog.debug("start player url: \(url.absoluteString)")
         guard let player = try? AVAudioPlayer(contentsOf: url) else {
             self.delegate?.RxAudioPlayerror()
@@ -83,6 +83,37 @@ public class RxAudioPlayerKit: NSObject {
         progressTimer?.invalidate()
         progressTimer = nil
         progressTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(self.didFireProgressTimer(_:)), userInfo: nil, repeats: true)
+    }
+    /// 继续其他播放器播放音乐
+    public final func startOtherPlayer() {
+        DispatchQueue.main.async {
+            do {
+                // 启动音频会话管理，此时会阻断后台音乐播放
+                try AVAudioSession.sharedInstance().setActive(false, options: AVAudioSession.SetActiveOptions.notifyOthersOnDeactivation)
+            }
+            catch {
+                BFLog.debug("error: \(error.localizedDescription)")
+            }
+        }
+    }
+    /// 震动一次
+    public final func systemVibration() {
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
+    }
+    /// 开始持续震动
+    private final func startSystemVibrate() {
+        AudioServicesAddSystemSoundCompletion(kSystemSoundID_Vibrate, nil, nil, { (sound, _)  in
+            let additionalTime: DispatchTimeInterval = .seconds(3)
+            DispatchQueue.main.asyncAfter(deadline: .now() + additionalTime, execute: {
+                AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
+            })
+        }, nil)
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
+    }
+    /// 结束持续震动
+    private final func stopSystemVibrate() {
+        AudioServicesRemoveSystemSoundCompletion(kSystemSoundID_Vibrate)
+        AudioServicesDisposeSystemSoundID(kSystemSoundID_Vibrate)
     }
 }
 extension RxAudioPlayerKit: AVAudioPlayerDelegate {

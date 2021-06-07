@@ -6,7 +6,7 @@ import BFKit
 public enum RxRoutableVC: RxRoutable {
     
     /// 创建一个VC
-    case create(_ class: AnyClass, _ params: [String: Any]? = nil)
+    case create(_ class: AnyClass, _ params: Any? = nil)
     /// VC类名
     public var any: AnyClass {
         switch self {
@@ -14,7 +14,7 @@ public enum RxRoutableVC: RxRoutable {
         }
     }
     /// VC参数
-    public var params: [String: Any]? {
+    public var params: Any? {
         switch self {
         case .create(_, let param): return param
         }
@@ -25,12 +25,12 @@ public protocol RxRoutable {
     /// VC类名
     var any: AnyClass { get }
     /// VC参数
-    var params: [String: Any]? { get }
+    var params: Any? { get }
 }
 /// 路由方法协议
 public protocol RxRoutableBase {
     /// VC实现参数方法
-    static func initWithParams(params: [String: Any]?) -> UIViewController
+    static func create(params: Any?) -> UIViewController
 }
 /// 路由协议管理类
 public struct RxRouterKit {
@@ -72,7 +72,7 @@ public struct RxRouterKit {
     /// 路由协议push VC
     public static func push(path: RxRoutable, fromVC: UIViewController? = nil, animated: Bool = true) {
         if let cls = path.any as? RxRoutableBase.Type {
-            let toVC = cls.initWithParams(params: path.params)
+            let toVC = cls.create(params: path.params)
             toVC.hidesBottomBarWhenPushed = true
             DispatchQueue.DispatchaSync(mainHandler: {
                 if fromVC != nil {
@@ -113,7 +113,7 @@ public struct RxRouterKit {
     /// 路由协议present VC
     public static func present(path: RxRoutable, fromVC: UIViewController? = nil, animated: Bool = true, completion: (()->Void)? = nil) {
         if let cls = path.any as? RxRoutableBase.Type {
-            let toVC = cls.initWithParams(params: path.params)
+            let toVC = cls.create(params: path.params)
             DispatchQueue.DispatchaSync(mainHandler: {
                 if fromVC != nil {
                     fromVC?.present(toVC, animated: animated , completion: completion)

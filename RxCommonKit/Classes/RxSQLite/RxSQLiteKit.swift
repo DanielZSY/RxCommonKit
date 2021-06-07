@@ -1,7 +1,7 @@
 
 import UIKit
-import BFKit
 import GRDB.Swift
+import BFKit.Swift
 
 fileprivate let RxDBName: String = "KitDatabase.sqlite"
 fileprivate let RxDBPath: String = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.cachesDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).first?.appendingPathComponent(RxDBName) ?? RxDBName

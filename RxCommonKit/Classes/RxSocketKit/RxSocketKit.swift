@@ -26,10 +26,10 @@ public final class RxSocketKit: NSObject {
         let url = URL.init(string: RxKey.service.wss)!
         var request = URLRequest.init(url: url)
         request.timeoutInterval = 10
-        let uid = RxUserSetting.shared.userId
-        request.setValue(String(uid), forHTTPHeaderField: "uid")
+        let uid = RxUserSetting.shared.userId.str
         let token = RxUserSetting.shared.userToken
-        request.setValue(token, forHTTPHeaderField: "Authorization")
+        request.setValue(uid, forHTTPHeaderField: "uid")
+        request.setValue(token, forHTTPHeaderField: "token")
         request.setValue("13", forHTTPHeaderField: "Sec-WebSocket-Version")
         self.webSocket = WebSocket.init(request: request)
         self.webSocket?.delegate = self
@@ -70,7 +70,7 @@ public final class RxSocketKit: NSObject {
     }
 }
 extension RxSocketKit: WebSocketDelegate {
-    
+    /// WS回调事件
     public func didReceive(event: WebSocketEvent, client: WebSocket) {
         switch event {
         case .connected(let headers):

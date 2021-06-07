@@ -4,38 +4,38 @@ import HandyJSON
 import GRDB.Swift
 
 /// 数据库版本
-public struct RxModelVersion: RxModelBase {
+public class RxModelVersion: RxModelBase {
     
-    public var id: Int64 = 0
-    public var rawData: [String : Any]?
-    public static let databaseTableName = "tb_rxversion"
+    public class override var databaseTableName: String { "tb_version" }
     enum Columns: String, ColumnExpression {
         case version, content
     }
     public var version: Int = 0
     public var content: String = ""
     
-    public init() {
+    public required init() {
+        super.init()
+    }
+    public required init<T: RxModelBase>(instance: T) {
+        super.init(instance: instance)
+        guard let model = instance as? Self else { return }
         
+        self.version = model.version
+        self.content = model.content
     }
-    public init(instance: RxModelVersion) {
-        self.id = instance.id
-        self.rawData = instance.rawData
-        self.version = instance.version
-        self.content = instance.content
-    }
-    public init(row: Row) {
+    public required init(row: Row) {
+        super.init(row: row)
+        
         self.version = row[Columns.version] ?? 0
         self.content = row[Columns.content] ?? ""
     }
-    public mutating func didInsert(with rowID: Int64, for column: String?) {
-        self.id = rowID
-    }
-    public func encode(to container: inout PersistenceContainer) {
+    public override func encode(to container: inout PersistenceContainer) {
+        super.encode(to: &container)
+        
         container[Columns.version] = self.version
         container[Columns.content] = self.content
     }
-    public func mapping(mapper: HelpingMapper) {
-        
+    public override func mapping(mapper: HelpingMapper) {
+        super.mapping(mapper: mapper)
     }
 }

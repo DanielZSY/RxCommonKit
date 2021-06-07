@@ -9,9 +9,14 @@
 /* Begin PBXBuildFile section */
 		38B4975901004D640B3DECC9 /* Pods_RxCommonKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91BBE141A129F9A34D683E8C /* Pods_RxCommonKit_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
-		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
+		607FACD81AFB9204008FA782 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* HomeViewController.swift */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
+		6513D52C266A0C8B006752D9 /* DetailLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6513D52B266A0C8B006752D9 /* DetailLabelCell.swift */; };
+		6513D52E266A10FC006752D9 /* DetailLabelSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6513D52D266A10FC006752D9 /* DetailLabelSectionController.swift */; };
 		6517F158265F84070021BDB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6517F157265F84070021BDB3 /* LaunchScreen.storyboard */; };
+		65CDFF942668806E00EBB764 /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CDFF932668806E00EBB764 /* ChatListViewController.swift */; };
+		65CDFF962668808B00EBB764 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CDFF952668808B00EBB764 /* MessagesViewController.swift */; };
+		65CDFF98266880D000EBB764 /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CDFF97266880D000EBB764 /* UserListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,11 +27,16 @@
 		607FACD01AFB9204008FA782 /* RxCommonKit_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxCommonKit_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		607FACD71AFB9204008FA782 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		6513D52B266A0C8B006752D9 /* DetailLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLabelCell.swift; sourceTree = "<group>"; };
+		6513D52D266A10FC006752D9 /* DetailLabelSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLabelSectionController.swift; sourceTree = "<group>"; };
 		6517F157265F84070021BDB3 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		65CDFF932668806E00EBB764 /* ChatListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewController.swift; sourceTree = "<group>"; };
+		65CDFF952668808B00EBB764 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		65CDFF97266880D000EBB764 /* UserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
 		7597D9B8E541435745A0C9CF /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		91BBE141A129F9A34D683E8C /* Pods_RxCommonKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxCommonKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99447C07029A9E15E93A5B4B /* Pods-RxCommonKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxCommonKit_Tests.debug.xcconfig"; path = "Target Support Files/Pods-RxCommonKit_Tests/Pods-RxCommonKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -69,11 +79,16 @@
 		607FACD21AFB9204008FA782 /* RxCommonKit */ = {
 			isa = PBXGroup;
 			children = (
+				6513D52A266A072A006752D9 /* SectionControllers */,
+				6513D529266A0715006752D9 /* Views */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
+				65CDFF932668806E00EBB764 /* ChatListViewController.swift */,
+				607FACD71AFB9204008FA782 /* HomeViewController.swift */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				6517F157265F84070021BDB3 /* LaunchScreen.storyboard */,
+				65CDFF952668808B00EBB764 /* MessagesViewController.swift */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
-				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				65CDFF97266880D000EBB764 /* UserListViewController.swift */,
 			);
 			path = RxCommonKit;
 			sourceTree = "<group>";
@@ -111,6 +126,22 @@
 				321ABA18741FEF3E05397EE5 /* LICENSE */,
 			);
 			name = Podspec;
+			sourceTree = "<group>";
+		};
+		6513D529266A0715006752D9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6513D52B266A0C8B006752D9 /* DetailLabelCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6513D52A266A072A006752D9 /* SectionControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6513D52D266A10FC006752D9 /* DetailLabelSectionController.swift */,
+			);
+			path = SectionControllers;
 			sourceTree = "<group>";
 		};
 		ACB64340FFA788F4B3DE1188 /* Frameworks */ = {
@@ -215,14 +246,24 @@
 				"${BUILT_PRODUCTS_DIR}/AlamofireNetworkActivityIndicator/AlamofireNetworkActivityIndicator.framework",
 				"${BUILT_PRODUCTS_DIR}/BFKit-Swift/BFKit.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/GRDB.swift/GRDB.framework",
 				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/IGListDiffKit/IGListDiffKit.framework",
+				"${BUILT_PRODUCTS_DIR}/IGListKit/IGListKit.framework",
+				"${BUILT_PRODUCTS_DIR}/InputBarAccessoryView/InputBarAccessoryView.framework",
+				"${BUILT_PRODUCTS_DIR}/MessageKit/MessageKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCommonKit/RxCommonKit.framework",
+				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
+				"${BUILT_PRODUCTS_DIR}/RxGesture/RxGesture.framework",
+				"${BUILT_PRODUCTS_DIR}/RxIGListKit/RxIGListKit.framework",
+				"${BUILT_PRODUCTS_DIR}/RxKeyboard/RxKeyboard.framework",
 				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwiftExt/RxSwiftExt.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
 			);
@@ -233,14 +274,24 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireNetworkActivityIndicator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BFKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRDB.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IGListDiffKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IGListKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InputBarAccessoryView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCommonKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxGesture.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxIGListKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxKeyboard.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwiftExt.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
 			);
@@ -278,7 +329,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				65CDFF98266880D000EBB764 /* UserListViewController.swift in Sources */,
+				65CDFF942668806E00EBB764 /* ChatListViewController.swift in Sources */,
+				607FACD81AFB9204008FA782 /* HomeViewController.swift in Sources */,
+				6513D52C266A0C8B006752D9 /* DetailLabelCell.swift in Sources */,
+				65CDFF962668808B00EBB764 /* MessagesViewController.swift in Sources */,
+				6513D52E266A10FC006752D9 /* DetailLabelSectionController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

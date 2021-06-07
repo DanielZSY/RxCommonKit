@@ -3,44 +3,43 @@ import GRDB.Swift
 import HandyJSON.Swift
 
 /// 省市区数据结构
-public struct RxModelArea: RxModelBase {
+public class RxModelArea: RxModelBase {
     
-    public var id: Int64 = 0
-    public var rawData: [String : Any]?
-    public static let databaseTableName = "tb_rxarea"
+    public class override var databaseTableName: String { "tb_area" }
     enum Columns: String, ColumnExpression {
         case id, pid, code, name
     }
-    public var pid: Int64 = 0
+    public var pid: Int = 0
     public var code: String = ""
     public var name: String = ""
     
-    public init() {
+    public required init() {
+        super.init()
+    }
+    public required init<T: RxModelBase>(instance: T) {
+        super.init(instance: instance)
+        guard let model = instance as? Self else { return }
+        self.pid = model.pid
+        self.code = model.code
+        self.name = model.name
+    }
+    public required init(row: Row) {
+        super.init(row: row)
         
-    }
-    public init(instance: RxModelArea) {
-        self.id = instance.id
-        self.pid = instance.pid
-        self.rawData = instance.rawData
-        self.code = instance.code
-        self.name = instance.name
-    }
-    public init(row: Row) {
         self.id = row[Columns.id] ?? 0
         self.pid = row[Columns.pid] ?? 0
         self.code = row[Columns.code] ?? ""
         self.name = row[Columns.name] ?? ""
     }
-    public mutating func didInsert(with rowID: Int64, for column: String?) {
-        self.id = rowID
-    }
-    public func encode(to container: inout PersistenceContainer) {
+    public override func encode(to container: inout PersistenceContainer) {
+        super.encode(to: &container)
+        
         container[Columns.id] = self.id
         container[Columns.pid] = self.pid
         container[Columns.code] = self.code
         container[Columns.name] = self.name
     }
-    public func mapping(mapper: HelpingMapper) {
-        
+    public override func mapping(mapper: HelpingMapper) {
+        super.mapping(mapper: mapper)
     }
 }

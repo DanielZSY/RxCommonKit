@@ -2,11 +2,9 @@ import UIKit
 import GRDB.Swift
 import HandyJSON.Swift
 
-public struct RxModelMessageRecord: RxModelBase {
+public class RxModelMessageRecord: RxModelBase {
     
-    public var id: Int64 = 0
-    public var rawData: [String : Any]?
-    public static let databaseTableName = "tb_rxmessagerecord"
+    public class override var databaseTableName: String { "tb_messagerecord" }
     enum Columns: String, ColumnExpression {
         case messageUserId, messageId, messageUnReadCount, messageLoginUserId
     }
@@ -15,32 +13,34 @@ public struct RxModelMessageRecord: RxModelBase {
     public var messageUnReadCount: Int = 0
     public var messageLoginUserId: Int64 = RxUserSetting.shared.userId
     
-    public init() {
+    public required init() {
+        super.init()
+    }
+    public required init<T: RxModelBase>(instance: T) {
+        super.init(instance: instance)
+        guard let model = instance as? Self else { return }
         
+        self.messageUserId = model.messageUserId
+        self.messageId = model.messageId
+        self.messageUnReadCount = model.messageUnReadCount
+        self.messageLoginUserId = model.messageLoginUserId
     }
-    public init(instance: RxModelMessageRecord) {
-        self.id = instance.id
-        self.rawData = instance.rawData
-        self.messageUserId = instance.messageUserId
-        self.messageId = instance.messageId
-        self.messageUnReadCount = instance.messageUnReadCount
-        self.messageLoginUserId = instance.messageLoginUserId
-    }
-    public init(row: Row) {
+    public required init(row: Row) {
+        super.init(row: row)
+        
         self.messageUserId = row[Columns.messageUserId] ?? 0
         self.messageId = row[Columns.messageId] ?? ""
         self.messageLoginUserId = row[Columns.messageLoginUserId] ?? 0
     }
-    public mutating func didInsert(with rowID: Int64, for column: String?) {
-        self.id = rowID
-    }
-    public func encode(to container: inout PersistenceContainer) {
+    public override func encode(to container: inout PersistenceContainer) {
+        super.encode(to: &container)
+        
         container[Columns.messageUserId] = self.messageUserId
         container[Columns.messageId] = self.messageId
         container[Columns.messageUnReadCount] = self.messageUnReadCount
         container[Columns.messageLoginUserId] = self.messageLoginUserId
     }
-    public func mapping(mapper: HelpingMapper) {
-        
+    public override func mapping(mapper: HelpingMapper) {
+        super.mapping(mapper: mapper)
     }
 }
