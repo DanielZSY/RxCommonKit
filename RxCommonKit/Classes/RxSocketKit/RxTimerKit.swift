@@ -35,7 +35,7 @@ public class RxTimerKit: NSObject {
     /// 执行定时器
     @objc private func executeTimer() {
         self.currentCount += 1
-        if (self.currentCount % self.pingTime) == 0 { RxSocketKit.shared.sendPing() }
+        if (self.currentCount % self.pingTime) == 0 { RxWebSocketKit.shared.sendPing() }
         NotificationCenter.default.post(name: RxNotificationNameExecuteTimer, object: nil, userInfo: nil)
     }
 }

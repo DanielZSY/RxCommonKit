@@ -32,6 +32,6 @@ class DetailLabelSectionController: ListSectionController {
     }
     
     override func didSelectItem(at index: Int) {
-        self.onDidSelectItem?(index)
+        self.onDidSelectItem?(self.section)
     }
 }

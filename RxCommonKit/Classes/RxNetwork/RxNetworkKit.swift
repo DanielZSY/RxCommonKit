@@ -14,7 +14,7 @@ public struct RxNetworkKit {
         return RxNetworkKit()
     }
     /// 网络请求对象
-    private func defaultAlamofire() -> Alamofire.Session {
+    private var defaultAlamofire: Alamofire.Session {
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForRequest = 10
         configuration.httpAdditionalHeaders = RxRequestHeaders()
@@ -40,17 +40,23 @@ public struct RxNetworkKit {
     /// - throws: 异常描述
     /// - returns: 返回值描述
     @discardableResult
-    public func request(target: RxNetworkTargetType, completionBlock: @escaping ((_ result: RxNetworkResult) -> (Void))) -> Cancellable {
-        
+    public func request(target: RxNetworkTargetType, encryption: Bool = true, completionBlock: @escaping ((_ result: RxNetworkResult) -> (Void))) -> Cancellable {
         let headers = target.headers ?? [:]
         let parameters = target.parameters ?? [:]
-        let path = target.path
-        let provider = MoyaProvider<RxNetworkTargetType>.init(session: self.defaultAlamofire(), plugins: [self.networkPlugin, self.typePlugin], trackInflights: false)
-        let task = provider.request(target, progress: nil, completion: { (result) in
+        let path = target.baseURL.absoluteString + target.path
+        let provider = MoyaProvider<RxNetworkTargetType>.init(session: self.defaultAlamofire, plugins: [self.typePlugin])
+        let task = provider.request(target, progress: { progress in
+            BFLog.debug("request progress: \(progress.progress)")
+        }, completion: { (result) in
             switch result {
             case .success(let response):
                 do {
-                    let str = RxCryptoKit.aesDecrypt(data: response.data)
+                    var str: String?
+                    if encryption {
+                        str = RxCryptoKit.aesDecrypt(data: response.data)
+                    } else {
+                        str = try? response.mapString()
+                    }
                     BFLog.debug("\n path: \(path) \n headers: \(headers) \n params: \(parameters) \n data: \(str)")
                     guard let model = RxNetworkResult.deserialize(from: str) else {
                         completionBlock(RxNetworkResult.error(message: "errorData".locale))

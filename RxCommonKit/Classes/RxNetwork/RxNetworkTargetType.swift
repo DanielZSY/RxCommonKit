@@ -70,17 +70,23 @@ extension RxNetworkTargetType: TargetType {
                 datas.append(format)
             }
             return .uploadMultipart(datas)
-        default:
-            switch self {
-            case .get(_, _):
-                return .requestParameters(parameters: self.parameters ?? [:], encoding: URLEncoding.queryString)
-            default: break
-            }
-            return .requestParameters(parameters: self.parameters ?? [:], encoding: JSONEncoding.prettyPrinted)
+        case .get(_, _):
+            let param = self.parameters ?? [:]
+            return .requestParameters(parameters: param, encoding: URLEncoding.queryString)
+        default: break
         }
+        let param = self.parameters ?? [:]
+        return .requestParameters(parameters: param, encoding: JSONEncoding.prettyPrinted)
     }
     public var headers: [String: String]? {
-        return RxRequestHeaders()
+        var dic = RxRequestHeaders()
+        switch self {
+        case .uploadFiles(_, _, _), .uploadImages(_, _):
+            dic["Content-Type"] = "application/x-www-form-urlencoded; charset=utf-8"
+        default:
+            dic["Content-Type"] = "application/json; charset=utf-8"
+        }
+        return dic
     }
     public var sampleData: Data {
         return "".data(using: String.Encoding.utf8)!

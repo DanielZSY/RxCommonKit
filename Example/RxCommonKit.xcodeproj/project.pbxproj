@@ -79,16 +79,16 @@
 		607FACD21AFB9204008FA782 /* RxCommonKit */ = {
 			isa = PBXGroup;
 			children = (
-				6513D52A266A072A006752D9 /* SectionControllers */,
-				6513D529266A0715006752D9 /* Views */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				65CDFF932668806E00EBB764 /* ChatListViewController.swift */,
 				607FACD71AFB9204008FA782 /* HomeViewController.swift */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				6517F157265F84070021BDB3 /* LaunchScreen.storyboard */,
 				65CDFF952668808B00EBB764 /* MessagesViewController.swift */,
+				6513D52A266A072A006752D9 /* SectionControllers */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 				65CDFF97266880D000EBB764 /* UserListViewController.swift */,
+				6513D529266A0715006752D9 /* Views */,
 			);
 			path = RxCommonKit;
 			sourceTree = "<group>";

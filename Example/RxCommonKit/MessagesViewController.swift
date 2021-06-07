@@ -21,5 +21,7 @@ class MessageViewController: MessagesViewController, RxRoutableBase {
         
         self.title = "Message"
         self.view.backgroundColor = .white
+        
+        
     }
 }

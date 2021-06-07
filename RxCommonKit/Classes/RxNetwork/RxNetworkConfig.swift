@@ -13,28 +13,25 @@ internal func RxRequestHeaders() -> [String: String] {
     headFields["udid"] = RxUserSetting.shared.udid
     headFields["uid"] = RxUserSetting.shared.userId.str
     headFields["token"] = "Bearer " + RxUserSetting.shared.userToken
-    headFields["Content-Type"] = "application/json"
     return headFields
 }
 /// 处理公共参数
 internal func RxRequestParameter(_ params: [String: Any]?) -> [String: Any] {
     let strTime = Date.time()
-    do {
-        if let param = params {
-            let strParam = (try? param.json()) ?? ""
-            var dicParmas = [String: Any]()
-            dicParmas["d"] = param
-            dicParmas["t"] = strTime
-            dicParmas["s"] = (strParam + strTime).md5
-            return dicParmas
-        }
-    } catch {
-        BFLog.debug("params sign error: \(error.localizedDescription)")
-    }
     var dicParmas = [String: Any]()
-    dicParmas["d"] = [String: Any]()
     dicParmas["t"] = strTime
-    dicParmas["s"] = (strTime).md5
+    if let param = params, param.keys.count > 0 {
+        do {
+            let strParam = try param.json()
+            dicParmas["d"] = param
+            dicParmas["s"] = (strParam + strTime).md5().lowercased()
+            return dicParmas
+        } catch {
+            BFLog.debug("params sign error: \(error.localizedDescription)")
+        }
+    }
+    dicParmas["d"] = [:]
+    dicParmas["s"] = strTime.md5().lowercased()
     return dicParmas
 }
 /// 网络状态码

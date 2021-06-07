@@ -24,7 +24,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         BFLog.active = true
         BFLog.debug("date: \(Date()) GMT8: \(Date.time())  time: \(Date.date())")
-        RxKey.shared.configService(api: ["http://im.91vh.com"], wss: "ws://192.168.0.38:8089/acc")
+        RxKey.shared.configService(api: ["http://192.168.0.38:8080"], wss: "ws://192.168.0.38:8089/acc")
+        
+        RxUserSetting.shared.updateToken(token: kRandomId)
+        RxUserSetting.shared.updateUser(dic: ["userId": "100000", "userName": "Daniel"])
+        
         self.window = UIWindow.init(frame: UIScreen.main.bounds)
         self.window?.backgroundColor = .white
         self.window?.makeKeyAndVisible()

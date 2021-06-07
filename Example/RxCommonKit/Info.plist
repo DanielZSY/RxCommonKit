@@ -38,14 +38,7 @@
 		<true/>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>myqcloud.com</key>
-			<dict>
-				<key>NSExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
-				<key>NSIncludesSubdomains</key>
-				<true/>
-			</dict>
-			<key>onesignal.com</key>
+			<key>http://192.168.0.38</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
 				<true/>

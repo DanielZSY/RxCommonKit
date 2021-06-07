@@ -10,7 +10,7 @@ class HomeViewController: UIViewController {
     }()
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
 
-    private let array: [String] = ["ChatList", "UserList"]
+    private let array: [String] = ["ChatList", "UserList", "WSSConnect", "SendMessage"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +27,18 @@ class HomeViewController: UIViewController {
                 switch row {
                 case 0: RxRouterKit.push(path: RxRoutableVC.create(ChatListViewController.self, nil))
                 case 1: RxRouterKit.push(path: RxRoutableVC.create(UserListViewController.self, nil))
+                case 2:
+                    RxTimerKit.shared.startTimer()
+                    RxWebSocketKit.shared.reconnect()
+                case 3:
+                    var param = [String: Any]()
+                    param["appId"] = 101
+                    param["userId"] = "100000"
+                    param["message"] = "test message"
+                    RxNetworkKit.created.request(target: .post("/user/sendMessage", param), encryption: false, completionBlock: { [weak self] result in
+                        guard let `self` = self else { return }
+                        
+                    })
                 default: break
                 }
             }

@@ -2,7 +2,7 @@ import UIKit
 import HandyJSON.Swift
 
 /// 请求返回对象处理
-public struct RxNetworkResult: HandyJSON {
+public class RxNetworkResult: NSObject, HandyJSON {
     
     /// 错误码
     public var code: Int = 0
@@ -15,10 +15,10 @@ public struct RxNetworkResult: HandyJSON {
     /// 签名
     public var sign: String = ""
     
-    public init() {
-        
+    public required override init() {
+        super.init()
     }
-    public mutating func mapping(mapper: HelpingMapper) {
+    public func mapping(mapper: HelpingMapper) {
         
         mapper <<< self.code <-- "c"
         mapper <<< self.data <-- "d"
