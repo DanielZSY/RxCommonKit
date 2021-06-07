@@ -30,7 +30,7 @@ class ChatListViewController: UIViewController, RxRoutableBase {
             cell.onDidSelectItem = { [weak self] row in
                 guard let `self` = self else { return }
                 guard let param = self.array.safeObject(at: row) else { return }
-                RxRouterKit.push(path: RxRoutableVC.create(MessagesViewController.self, param))
+                RxRouterKit.push(path: RxRoutableVC.create(MessageViewController.self, param))
             }
             return cell
         })

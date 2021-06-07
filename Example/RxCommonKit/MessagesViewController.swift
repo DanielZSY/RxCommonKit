@@ -6,12 +6,12 @@ import RxCocoa
 import MessageKit
 import RxCommonKit
 
-class MessagesViewController: message, RxRoutableBase {
+class MessageViewController: MessagesViewController, RxRoutableBase {
     
     private var userId: String = ""
     
     static func create(params: Any?) -> UIViewController {
-        let itemVC = MessagesViewController()
+        let itemVC = MessageViewController()
         itemVC.userId = (params as? String) ?? ""
         return itemVC
     }
